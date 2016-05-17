@@ -20,7 +20,11 @@ namespace ChallengeBoard.Web.Core
             return session.Query<Challenge>().OrderByDescending(m => m.Text).ToList();
 
         }
+        public static List<User> GetAllUsers(IDocumentSession session)
+        {
+            return session.Query<User>().ToList();
 
+        }
         public static User GetUser(IDocumentSession session, string name)
         {
             return session.Query<User>().Customize(x=>x.WaitForNonStaleResults()).FirstOrDefault(m => m.UserName == name.ToLower());

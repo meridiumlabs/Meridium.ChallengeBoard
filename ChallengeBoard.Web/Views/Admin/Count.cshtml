@@ -1,0 +1,27 @@
+﻿@using ChallengeBoard.Web.Models
+@model List<ChallengeBoard.Web.Controllers.Count>
+<h2>RÄKNA</h2>
+
+
+@{
+    var point = new List<int>();
+    
+    foreach (var count in Model)
+    {
+
+        point.Add(@count.Points);
+    }
+
+    var firstlevel = point.Count(x => x > 100 && x < 400);
+    var secondlevel = point.Count(x => x > 400 && x < 800);
+    var thirdlevel = point.Count(x => x > 800 && x < 1300);
+    var fourthlevel = point.Count(x => x > 1300 && x < 2000);
+    var fifthlevel = point.Count(x => x > 2000);
+}
+<div>
+    <span>100: @firstlevel st</span>
+    <span>400: @secondlevel st</span>
+    <span>800: @thirdlevel st</span>
+    <span>1300: @fourthlevel st</span>
+    <span>2000: @fifthlevel st</span>
+</div>

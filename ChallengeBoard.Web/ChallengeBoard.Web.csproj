@@ -204,6 +204,7 @@
   <ItemGroup>
     <Content Include="Content\Styles\Components\HistoryFeed.scss" />
     <None Include="Properties\PublishProfiles\Challenge board publish.pubxml" />
+    <Content Include="Views\Admin\Count.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
