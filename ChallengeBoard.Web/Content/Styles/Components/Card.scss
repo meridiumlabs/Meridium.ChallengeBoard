@@ -1,16 +1,16 @@
 .cards {
-    list-style:none;
-    padding:20px 0 20px 20px;
-    margin:0;
-    font-size:0;
+    list-style: none;
+    padding: 20px 17px;
+    margin: 0;
+    font-size: 0;
     box-sizing: content-box;
-    width: 85%;
-    float: left;
+    width: 100%;
+    box-sizing: border-box;
 }
 .card {
     font-size:16px;
     //width:250px;
-    width:16.6%;
+    width:20%;
     height:220px;
     position:relative;
     padding:0;
@@ -146,7 +146,14 @@
     top: 15px;
     right: 15px;
     color:rgba(255,255,255,0.5);
+    opacity:0;
+    transition:opacity 300ms;
+    .card:hover & {
+        opacity:1;
+    }
 }
+
+
 .card-count--subtr,
 .card-count--add {
     //display: none;
@@ -212,9 +219,9 @@
     position: relative;
 }
 
-@media (max-width:1900px) {
+@media (min-width:1900px) {
     .card {
-        width:12.5%;
+        width:14.285%;
     }
     .intro {
         width:25%;
@@ -222,7 +229,7 @@
 }
 @media (max-width:1800px) {
     .card {
-        width:14.285%;
+        width:16.66666666%;
     }
     .intro {
         width:28.571%;
@@ -230,7 +237,7 @@
 }
 @media (max-width:1600px) {
     .card {
-        width:16.667%;
+        width:20%;
     }
     .intro {
         width:33.334%;

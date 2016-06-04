@@ -4,9 +4,11 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
 using ChallengeBoard.Web.App_Start;
+using ChallengeBoard.Web.Controllers;
 using ChallengeBoard.Web.Models;
 using Raven.Client;
 using Raven.Client.Document;
+using Raven.Client.Indexes;
 
 namespace ChallengeBoard.Web {    
     public class MvcApplication : HttpApplication {
@@ -36,6 +38,8 @@ namespace ChallengeBoard.Web {
             }).As<IDocumentStore>().SingleInstance();
 
             builder.Register(c => c.Resolve<IDocumentStore>().OpenAsyncSession()).As<IAsyncDocumentSession>().InstancePerLifetimeScope();
+
+            IndexCreation.CreateIndexes(typeof(User_TotalPoints).Assembly, MvcApplication.Store);
 
         }
     }
