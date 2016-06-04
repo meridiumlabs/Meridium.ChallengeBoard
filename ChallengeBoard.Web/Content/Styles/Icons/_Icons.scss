@@ -21,6 +21,18 @@ Markup:
 <span class="icon icon-clock icon--fw icon--lg" aria-hidden="true"r></span> .icon-clock
 </div>
 
+<div style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:10px;">
+<span class="icon icon-bell icon--fw icon--lg" aria-hidden="true"r></span> .icon-bell
+</div>
+
+<div style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:10px;">
+<span class="icon icon-star icon--fw icon--lg" aria-hidden="true"r></span> .icon-star
+</div>
+
+<div style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:10px;">
+<span class="icon icon-cross icon--fw icon--lg" aria-hidden="true"r></span> .icon-cross
+</div>
+
 
 
 Styleguide 3.3.
@@ -31,6 +43,9 @@ $icon-plus: "\E001";
 $icon-health: "\E002";
 $icon-check: "\E003";
 $icon-clock: "\E004";
+$icon-bell: "\E005";
+$icon-star: "\E006";
+$icon-cross: "\E007";
 
 
 .icon-plus:before {
@@ -44,5 +59,14 @@ $icon-clock: "\E004";
 }
 .icon-clock:before {
 	content: "#{$icon-clock}";
+}
+.icon-bell:before {
+	content: "#{$icon-bell}";
+}
+.icon-star:before {
+	content: "#{$icon-star}";
+}
+.icon-cross:before {
+	content: "#{$icon-cross}";
 }
 

@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\LeaderboardController.cs" />
     <Compile Include="Controllers\RavenSessionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Core\RavenService.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Models\Feed.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModels\BoardViewModel.cs" />
+    <Compile Include="Models\ViewModels\LeaderboardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
   </ItemGroup>
@@ -148,6 +150,7 @@
     <Content Include="Content\Scripts\Modules\ChallengeCards.js" />
     <Content Include="Content\Scripts\Main.js" />
     <Content Include="Content\Scripts\Modules\UserInfo.js" />
+    <None Include="Content\Styles\Components\Leaderboard.scss" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -202,9 +205,11 @@
     <Content Include="Views\Authentication\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Styles\Components\HistoryFeed.scss" />
+    <Content Include="Content\Styles\Layout\Header.scss" />
+    <Content Include="Content\Styles\Components\Notifications.scss" />
     <None Include="Properties\PublishProfiles\Challenge board publish.pubxml" />
     <Content Include="Views\Admin\Count.cshtml" />
+    <Content Include="Views\Leaderboard\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
