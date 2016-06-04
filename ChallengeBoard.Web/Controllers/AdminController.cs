@@ -31,7 +31,7 @@ namespace ChallengeBoard.Web.Controllers
             {
                 var count = new Count()
                 {
-                    Name = user.Name,
+                    Name = user.Name + "(" + user.UserName + ")",
                     Points = CalculatePoints(challenges, user)
                 };
 

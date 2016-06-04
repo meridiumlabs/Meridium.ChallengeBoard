@@ -12,16 +12,41 @@
         point.Add(@count.Points);
     }
 
-    var firstlevel = point.Count(x => x > 100 && x < 400);
-    var secondlevel = point.Count(x => x > 400 && x < 800);
+    var firstlevel = Model.Count(x => x.Points > 100 && x.Points < 400);
+    var firstlevels = Model.Where(x => x.Points > 100 && x.Points < 400).ToList();
+    var secondlevel = Model.Count(x => x.Points > 400 && x.Points < 800);
+    var secondlevels = Model.Where(x => x.Points > 400 && x.Points < 800).ToList();
     var thirdlevel = point.Count(x => x > 800 && x < 1300);
-    var fourthlevel = point.Count(x => x > 1300 && x < 2000);
-    var fifthlevel = point.Count(x => x > 2000);
+    var thirdlevels = Model.Where(x => x.Points > 800 && x.Points < 1300).ToList();
+    var fourthlevel = Model.Count(x => x.Points > 1300 && x.Points < 2000);
+    var fourthlevels = Model.Where(x => x.Points > 1300 && x.Points < 2000).ToList();
+    var fifthlevel = Model.Count(x => x.Points > 2000);
+    var fifthlevels = Model.Where(x => x.Points > 2000).ToList();
 }
 <div>
-    <span>100: @firstlevel st</span>
-    <span>400: @secondlevel st</span>
-    <span>800: @thirdlevel st</span>
-    <span>1300: @fourthlevel st</span>
-    <span>2000: @fifthlevel st</span>
+    <span>100: @firstlevel st</span><br/>
+    @foreach (var fl in firstlevels)
+    {
+        <span>@fl.Name</span><br/>
+    }
+    <br/><span>400: @secondlevel st</span><br />
+    @foreach (var fl in secondlevels)
+    {
+        <span>@fl.Name</span><br />
+    }
+    <br /><span>800: @thirdlevel st</span><br />
+    @foreach (var fl in thirdlevels)
+    {
+        <span>@fl.Name</span><br />
+    }
+    <br /><span>1300: @fourthlevel st</span><br />
+    @foreach (var fl in fourthlevels)
+    {
+        <span>@fl.Name</span><br />
+    }
+    <br /><span>2000: @fifthlevel st</span><br />
+    @foreach (var fl in fifthlevels)
+    {
+        <span>@fl.Name</span><br />
+    }
 </div>
