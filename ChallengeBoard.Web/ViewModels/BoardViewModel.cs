@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using ChallengeBoard.Web.Models;
 
-namespace ChallengeBoard.Web.Models.ViewModels {
+namespace ChallengeBoard.Web.ViewModels {
     public class BoardViewModel {
         public List<Challenge> Challenges { get; set; }
         public User CurrentUser { get; set; }

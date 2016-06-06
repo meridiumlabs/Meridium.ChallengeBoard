@@ -1,5 +1,4 @@
-﻿namespace ChallengeBoard.Web.Models
-{
+﻿namespace ChallengeBoard.Web.Models {
     public enum ChallengeCategory {
         Health = 1,
         Cardio = 2,

@@ -70,7 +70,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
 });
-/*var msnry = new Masonry( cards, {
-  itemSelector: '.item',
-  columnWidth: 220
-});*/

@@ -3,8 +3,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
-using ChallengeBoard.Web.App_Start;
-using ChallengeBoard.Web.Controllers;
+using ChallengeBoard.Web.Indexes;
 using ChallengeBoard.Web.Models;
 using Raven.Client;
 using Raven.Client.Document;
@@ -18,8 +17,7 @@ namespace ChallengeBoard.Web {
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-
+            RouteConfig.RegisterRoutes(RouteTable.Routes);            
 
             Store = new DocumentStore() { ConnectionStringName = "ProjectFuchsia" };
             Store.Initialize();
@@ -38,8 +36,9 @@ namespace ChallengeBoard.Web {
             }).As<IDocumentStore>().SingleInstance();
 
             builder.Register(c => c.Resolve<IDocumentStore>().OpenAsyncSession()).As<IAsyncDocumentSession>().InstancePerLifetimeScope();
-
-            IndexCreation.CreateIndexes(typeof(User_TotalPoints).Assembly, MvcApplication.Store);
+            
+            IndexCreation.CreateIndexes(typeof(User_TotalPoints).Assembly, Store);
+            IndexCreation.CreateIndexes(typeof(Feed_FeedViewModel).Assembly, Store);
 
         }
     }

@@ -47,13 +47,6 @@ gulp.task('scripts', function () {
     .pipe(gulp.dest(dest.processedScripts));
 });
 
-
-//// Process styles.
-//gulp.task('scripts', function () {
-//    return gulp.src(src.scriptFilesToProcess)
-//           .pipe(gulp.dest(dest.processedScripts));
-//});
-
 // Process styles.
 gulp.task('styles', function () {
     return gulp.src(src.sassFilesToProcess)

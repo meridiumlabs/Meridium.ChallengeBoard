@@ -20,6 +20,13 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -125,18 +132,23 @@
     <Compile Include="Controllers\LeaderboardController.cs" />
     <Compile Include="Controllers\RavenSessionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Core\RavenService.cs" />
+    <Compile Include="Indexes\User_TotalPoints.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Challenge.cs" />
     <Compile Include="Models\ChallengeCategory.cs" />
-    <Compile Include="Models\Extensions\ChallengeExtensions.cs" />
-    <Compile Include="Models\Extensions\ListExtensions.cs" />
+    <Compile Include="Extensions\ChallengeIsCompleteExtension.cs" />
+    <Compile Include="Extensions\ChallengeNumberOfCompletionsExtension.cs" />
+    <Compile Include="Extensions\ListToggleExtension.cs" />
+    <Compile Include="Extensions\UserIsAuthenticatedExtension.cs" />
+    <Compile Include="Extensions\UserSetAuthenticationCookie.cs" />
     <Compile Include="Models\Feed.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\ViewModels\BoardViewModel.cs" />
-    <Compile Include="Models\ViewModels\LeaderboardViewModel.cs" />
+    <Compile Include="ViewModels\BoardViewModelBuilder.cs" />
+    <Compile Include="ViewModels\BoardViewModel.cs" />
+    <Compile Include="Indexes\Feed_FeedViewModel.cs" />
+    <Compile Include="ViewModels\LeaderboardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
   </ItemGroup>
@@ -163,7 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Scripts\Vendor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
