@@ -3,6 +3,6 @@
         Health = 1,
         Cardio = 2,
         Training = 3,
-        Miscellaneous = 4
+        Misc = 4
     }
 }

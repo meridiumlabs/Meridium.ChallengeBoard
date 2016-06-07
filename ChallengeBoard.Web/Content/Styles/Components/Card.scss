@@ -104,11 +104,32 @@
         display:inline-block;
         line-height:36px; 
     }
+    .icon-cardio {
+        width:32px;
+        margin-right:2px;
+        line-height:34px; 
+    }
+    .icon-training {
+        font-size:24px;
+        line-height:35px;
+        position: relative;
+        top: -1px;
+    }
+    .icon-misc {
+        font-size:25px;
+        width:33px;
+        line-height:34px;
+    }
     &:hover .card-icon-inner {
         transform:translateX(-34px);
+        .icon:first-child { opacity:0; }
     }
 }
 .card-icon-inner {        
+    .icon:first-child { 
+        opacity:1; 
+        transition:opacity 100ms ease;
+    }
     transform:translateX(0);
     transition:transform 200ms ease;
 }

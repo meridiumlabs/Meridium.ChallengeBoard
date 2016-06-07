@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var challengeCards = new ChallengeCards(username.textContent);
     var userInfo = new UserInfo(username.textContent);
 
-    userInfo.initProgressBar();
+    userInfo.init();
 
     var cards = document.getElementById('Cards');
 

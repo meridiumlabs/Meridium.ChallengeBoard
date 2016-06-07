@@ -20,7 +20,6 @@ namespace ChallengeBoard.Web.ViewModels {
                     .ProjectFromIndexFieldsInto<FeedViewModel>()
                     .Where(x => x.UserId == user.Id)
                     .OrderByDescending(m => m.TimeStamp)
-                    .Take(10)
                     .ToList()
             };
             return model;

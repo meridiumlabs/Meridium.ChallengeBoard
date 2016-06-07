@@ -4,10 +4,10 @@
     border:1px solid rgba(0,0,0,0.1);
     border-radius:4px;
     top:75px;
-    right:18px;
+    right:13px;
     z-index:99999;
     box-shadow:0 0 34px rgba(0,0,0,0.1);
-    width:265px;
+    width:275px;
     opacity:0;
     transition:transform 200ms ease-out, opacity 300ms;           
     transform:translateY(5px);
@@ -24,7 +24,7 @@
         transform: rotate(45deg);
         position: absolute;
         top: -7px;
-        right: 17px; 
+        right: 27px; 
         background: #fff;
         z-index: -1;
     }

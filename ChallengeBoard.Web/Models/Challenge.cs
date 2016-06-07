@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Raven.Imports.Newtonsoft.Json;
 
-namespace ChallengeBoard.Web.Models
-{
+namespace ChallengeBoard.Web.Models {
     public class Challenge {
         public string Id { get; set; }
         public string Text { get; set; }

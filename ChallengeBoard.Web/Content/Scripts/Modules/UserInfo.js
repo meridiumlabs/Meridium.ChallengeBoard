@@ -1,6 +1,8 @@
 class UserInfo {
     constructor(user) {
-        this.user = user;
+        this.user = user;        
+    }
+    init() {
         this.registerEvents();
     }
     registerEvents() {
