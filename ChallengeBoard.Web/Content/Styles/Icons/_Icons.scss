@@ -6,10 +6,6 @@ Lorem
 Markup:
 
 <div style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:10px;">
-<span class="icon icon-misc icon--fw icon--lg" aria-hidden="true"r></span> .icon-misc
-</div>
-
-<div style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:10px;">
 <span class="icon icon-plus icon--fw icon--lg" aria-hidden="true"r></span> .icon-plus
 </div>
 
@@ -45,13 +41,16 @@ Markup:
 <span class="icon icon-training icon--fw icon--lg" aria-hidden="true"r></span> .icon-training
 </div>
 
+<div style="border-top:1px solid #eee;border-bottom:1px solid #eee;margin-bottom:10px;">
+<span class="icon icon-misc icon--fw icon--lg" aria-hidden="true"r></span> .icon-misc
+</div>
+
 
 
 Styleguide 3.3.
 */
 
 
-$icon-misc: "\E00A";
 $icon-plus: "\E001";
 $icon-health: "\E002";
 $icon-check: "\E003";
@@ -61,11 +60,9 @@ $icon-star: "\E006";
 $icon-cross: "\E007";
 $icon-cardio: "\E008";
 $icon-training: "\E009";
+$icon-misc: "\E00A";
 
 
-.icon-misc:before {
-	content: "#{$icon-misc}";
-}
 .icon-plus:before {
 	content: "#{$icon-plus}";
 }
@@ -92,5 +89,8 @@ $icon-training: "\E009";
 }
 .icon-training:before {
 	content: "#{$icon-training}";
+}
+.icon-misc:before {
+	content: "#{$icon-misc}";
 }
 

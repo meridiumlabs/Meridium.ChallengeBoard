@@ -185,6 +185,8 @@
     <Content Include="Content\Scripts\Modules\ChallengeCards.js" />
     <Content Include="Content\Scripts\Main.js" />
     <Content Include="Content\Scripts\Modules\UserInfo.js" />
+    <Content Include="Content\Styles\Components\Dialog.scss" />
+    <Content Include="Content\Styles\Components\Form.scss" />
     <None Include="Content\Styles\Components\Leaderboard.scss" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />

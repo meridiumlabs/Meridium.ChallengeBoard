@@ -25,14 +25,16 @@ var src = {
     svgIcons: sourceRoot + '/Icons/*.svg',
     iconSassFiles: sourceRoot + '/Styles/Icons/',
     scriptFilesToProcess: sourceRoot + '/Scripts/main.js',
-    scriptFilesToWatch: sourceRoot + '/Scripts/**/*.js'
+    scriptFilesToWatch: sourceRoot + '/Scripts/**/*.js',
+    imagesToProces: sourceRoot + '/Images/**/*.*'
 };
 
 //Destination folders.
 var dest = {
     processedStyles: destinationRoot + '/Styles/',
     processedFonts: destinationRoot + '/Fonts/',
-    processedScripts: destinationRoot + '/Scripts/'
+    processedScripts: destinationRoot + '/Scripts/',
+    processedImages: destinationRoot + '/Images/'
 };
 
 // Process scripts.
@@ -55,6 +57,11 @@ gulp.task('styles', function () {
         }))
         //.pipe(minifyCSS())  
         .pipe(gulp.dest(dest.processedStyles));
+});
+
+gulp.task('images', function () {
+    return gulp.src(src.imagesToProces)         
+        .pipe(gulp.dest(dest.processedImages));
 });
 
 // Generates an icon font based on svg icons i source folder and updates css template. 
@@ -83,7 +90,7 @@ gulp.task('icons', function () {
 
 //Build task. Runs serial and parallel tasks in correct order.
 gulp.task('build', function () {
-    runSequence('icons', ['scripts', 'styles']);
+    runSequence('icons', ['scripts', 'styles'], 'images');
 });
 
 //Runs build tasks and start watching for changes. Run as "gulp watch".
@@ -91,6 +98,7 @@ gulp.task('watch', ['build'], function () {
     gulp.watch(src.scriptFilesToWatch, ['scripts']);
     gulp.watch(src.sassFilesToWatch, ['styles']);
     gulp.watch(src.svgIcons, ['icons']);
+    gulp.watch(src.imagesToProces, ['images']);
 });
 
 //Defaults when running just "gulp".

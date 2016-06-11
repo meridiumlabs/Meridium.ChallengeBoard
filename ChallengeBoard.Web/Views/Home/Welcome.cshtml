@@ -1,4 +1,15 @@
-﻿<div class="header-wrap">
-    <h1>Välkommen!</h1>
-    <p>Lägg beslag på en adress till din utmaningsbräda genom att gå mot /[valfritt-namn].</p>
+﻿
+
+<div class="dialog">
+    <div class="dialog__inner">
+        <strong class="dialog__lead">Ange ett namn för<br /> att skapa din bräda</strong>
+        <form class="dialog__form form" action="/" method="POST">
+            <div class="form__item">
+                <label class="hidden">Namn</label>
+                <input type="text" class="form__textbox" />
+                <span class="form__textbox-placeholder">challenge.meridium.se/</span>
+            </div>
+            <button type="submit" class="button">Lets do this</button>
+        </form>
+    </div>
 </div>
