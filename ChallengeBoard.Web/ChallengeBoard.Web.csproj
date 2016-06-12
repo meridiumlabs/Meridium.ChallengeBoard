@@ -153,6 +153,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\LeaderboardController.cs" />
     <Compile Include="Controllers\RavenSessionController.cs" />
+    <Compile Include="Controllers\BoardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Indexes\User_TotalPoints.cs" />
     <Compile Include="Global.asax.cs">
@@ -167,9 +168,13 @@
     <Compile Include="Extensions\UserSetAuthenticationCookie.cs" />
     <Compile Include="Models\Feed.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Shared\Attributes\ExportModelStateToTempData.cs" />
+    <Compile Include="Shared\Attributes\ImportModelStateFromTempData.cs" />
+    <Compile Include="Shared\Attributes\ModelStateDataTransfer.cs" />
     <Compile Include="ViewModels\BoardViewModelBuilder.cs" />
     <Compile Include="ViewModels\BoardViewModel.cs" />
     <Compile Include="Indexes\Feed_FeedViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\LeaderboardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
@@ -209,7 +214,7 @@
   <ItemGroup>
     <Content Include="Views\Admin\AddChallenge.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Board\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -229,10 +234,10 @@
     <Content Include="Content\Styles\Layout\Common.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\NewUser.cshtml" />
+    <Content Include="Views\Board\NewUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Authentication\Index.cshtml" />

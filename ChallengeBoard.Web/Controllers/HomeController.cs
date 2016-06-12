@@ -1,70 +1,26 @@
-﻿using System;
-using System.Linq;
-using System.Net;
-using System.Web.Mvc;
-using ChallengeBoard.Web.Extensions;
-using ChallengeBoard.Web.Models;
+﻿using ChallengeBoard.Web.Models;
+using ChallengeBoard.Web.Shared.Attributes;
 using ChallengeBoard.Web.ViewModels;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace ChallengeBoard.Web.Controllers {
     public class HomeController : RavenSessionController {
-        
-        public ActionResult Index(string name) {
-            if (string.IsNullOrEmpty(name)) return View("Welcome");
-
-            //TODO: Fix wait for non stale.
-            var user = RavenSession.Query<User>().Customize(x => x.WaitForNonStaleResults()).FirstOrDefault(m => m.UserName == name.ToLower());
-                      
-            if (user == null) return View("NewUser", new User { UserName = name });
-            
-            if (user.IsPublic == false && user.IsAuthenticated() == false) {
-                return RedirectToAction("Index", "Authentication", new { name = user.UserName });                
-            }            
-
-            var model = BoardViewModelBuilder.Build(RavenSession, user);
-            return View("Index", model);
+        [ImportModelStateFromTempData]
+        public ActionResult Index() {
+            return View(new HomeViewModel());
         }
 
         [HttpPost]
-        public ActionResult ToggleChallenge(string id, string currentUser, bool single) {
-            var user = RavenSession.Load<User>("users/" + currentUser);
-            if (user.IsAuthenticated() == false) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
-            if (single) {
-                user.CompletedChallenges.Toggle(id);
-            }
-            else {
-                user.CompletedChallenges.Add(id);
-            }
-            UpdateFeed(user, id);            
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
+        [ExportModelStateToTempData]
+        public ActionResult New(HomeViewModel model) {
+            if(ModelState.IsValid == false) return RedirectToAction("Index");
 
-        private void UpdateFeed(User user, string id) {
-            var feedEntry = new Feed {
-                UserId = user.Id,
-                TimeStamp = DateTime.Now,
-                ChallengeId = id
-            };
-            RavenSession.Store(feedEntry);
-        }
-
-        [HttpPost]
-        public ActionResult ToggleChallengeSubtract(string id, string currentUser) {
-            var user = RavenSession.Load<User>("users/" + currentUser);
-            if (!user.IsAuthenticated()) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
-
-            user.CompletedChallenges.Remove(id);               
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
-        }
-        
-        [HttpPost]
-        public ActionResult NewUser(User user) {
-            if (!string.IsNullOrEmpty(user.Name) && !string.IsNullOrEmpty(user.Password)) {               
-                user.AuthID = Guid.NewGuid().ToString();
-                RavenSession.Store(user);
-                user.SetAuthenticationCookie();
+            if (RavenSession.Query<User>().Any(x => x.UserName == model.UserName)) {
+                ModelState.AddModelError("Name", "Namnet är redan taget");
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index", new { name = user.UserName });
+            return RedirectToAction("Index", "Board", new { username = model.UserName });
         }
     }
 }

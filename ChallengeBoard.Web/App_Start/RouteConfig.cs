@@ -18,12 +18,18 @@ namespace ChallengeBoard.Web {
                 defaults: new { controller = "Authentication", action = "Index", id = UrlParameter.Optional }
             );
 
+            routes.MapRoute(
+             name: "Home",
+             url: "",
+             defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+         );
+
             routes.MapRoute("404", "404", new { controller = "NotFound", action = "NotFound" });
 
             routes.MapRoute(
                 "Profile",
-                "{name}",
-                new { controller = "Home", action = "Index", name = UrlParameter.Optional },
+                "{username}",
+                new { controller = "Board", action = "Index", name = UrlParameter.Optional },
                 new { httpMethod = new HttpMethodConstraint("GET") }
             );
 

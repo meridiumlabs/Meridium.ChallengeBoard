@@ -9,6 +9,7 @@
     <script src="//use.typekit.net/roc2sow.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="static/styles/app.css">
     <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon.png">
     <link rel="icon" type="image/png" sizes="180x180" href="/static/images/appicon.png">
@@ -16,9 +17,10 @@
     <link rel="shortcut icon" href="/static/images/favicon.png" type="image/x-icon" />
 </head>
     <body>
-        <div class="wrap" id="wrap">
+        <div class="wrap@(ViewData.ModelState.IsValid == false ? " wrap--init" : "")" id="wrap">
             @RenderBody()
         </div>
+        <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
         <script src="/static/scripts/app.js"></script>
     </body>
 </html>

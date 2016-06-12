@@ -7,6 +7,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById("wrap").classList.add('wrap--init');
     }, 400);
 
+
+
+    
+    var placeholders = $('.form__item__textbox');
+   
+    placeholders.keypress(function() {
+        //if($(this).val().length > 0) {
+            $(this).addClass("form__item__textbox--hasvalue");
+        //}
+    });
+    placeholders.keyup(function() {
+        if($(this).val().length == 0) {
+            $(this).removeClass("form__item__textbox--hasvalue")
+        }
+    });
+
+
+
+
     var username = document.getElementById("user-hide");
 
     if (!username) {
@@ -67,6 +86,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
             xhr.send(null);
         }
     });
-
-
 });

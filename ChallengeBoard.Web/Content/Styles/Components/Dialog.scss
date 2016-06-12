@@ -7,10 +7,40 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    transform:translateY(10px);
+    transition:transform 300ms;
+    
+    .wrap--init & {
+        transform:translateY(0);
+    }
 }
 .dialog__inner {
     background:#fff;
     width:465px;
-    height:470px;
-    margin:-20px auto 0;
+    height:490px;
+    margin:-40px auto 0;
+    padding:60px;
+    box-sizing:border-box;
+    position:relative;
 }
+.dialog__lead {
+    font-family:'lato';
+    font-size:22px;
+    line-height:1.6 ;
+    display:block;
+    text-align:center;
+    width:240px;
+    margin:0 auto;
+    margin-top:20px;
+
+    margin-bottom:90px;
+}
+.dialog__form {
+    position:absolute;
+    bottom:60px;
+    left:60px;
+    right:60px;
+    margin:0;
+}
+
+

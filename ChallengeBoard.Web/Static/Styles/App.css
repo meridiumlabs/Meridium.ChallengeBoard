@@ -570,141 +570,6 @@ a {
 a:hover {
   color: #0FA0CE; }
 
-/* Buttons
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-  display: inline-block;
-  height: 38px;
-  padding: 0 30px;
-  color: #fff;
-  text-align: center;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 38px;
-  letter-spacing: .1rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: #00d2a9;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  box-sizing: border-box; }
-
-.button:hover,
-button:hover,
-input[type="submit"]:hover,
-input[type="reset"]:hover,
-input[type="button"]:hover,
-.button:focus,
-button:focus,
-input[type="submit"]:focus,
-input[type="reset"]:focus,
-input[type="button"]:focus {
-  color: #333;
-  border-color: #888;
-  outline: 0; }
-
-.button.button-primary,
-button.button-primary,
-input[type="submit"].button-primary,
-input[type="reset"].button-primary,
-input[type="button"].button-primary {
-  color: #FFF;
-  background-color: #33C3F0;
-  border-color: #33C3F0; }
-
-.button.button-primary:hover,
-button.button-primary:hover,
-input[type="submit"].button-primary:hover,
-input[type="reset"].button-primary:hover,
-input[type="button"].button-primary:hover,
-.button.button-primary:focus,
-button.button-primary:focus,
-input[type="submit"].button-primary:focus,
-input[type="reset"].button-primary:focus,
-input[type="button"].button-primary:focus {
-  color: #FFF;
-  background-color: #1EAEDB;
-  border-color: #1EAEDB; }
-
-/* Forms
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-form {
-  width: 200px;
-  margin: 0 auto; }
-
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
-textarea,
-select {
-  height: 38px;
-  padding: 6px 10px;
-  /* The 6px vertically centers text on FF, ignored by Webkit */
-  background-color: #fff;
-  border: 1px solid #D1D1D1;
-  border-radius: 4px;
-  box-shadow: none;
-  box-sizing: border-box; }
-
-/* Removes awkward default styles on some inputs for iOS */
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
-textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; }
-
-textarea {
-  min-height: 65px;
-  padding-top: 6px;
-  padding-bottom: 6px; }
-
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-textarea:focus,
-select:focus {
-  border: 1px solid #33C3F0;
-  outline: 0; }
-
-label,
-legend {
-  display: block;
-  margin-bottom: .5rem;
-  color: #fff; }
-
-fieldset {
-  padding: 0;
-  border-width: 0; }
-
-input[type="checkbox"],
-input[type="radio"] {
-  display: inline; }
-
-label > .label-body {
-  display: inline-block;
-  margin-left: .5rem;
-  font-weight: normal; }
-
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
@@ -1344,6 +1209,81 @@ Styleguide 3.1.
   display: block;
   margin-bottom: -1px; }
 
+.form__item {
+  position: relative;
+  margin-bottom: 10px; }
+
+.form__item__textbox {
+  border: 0;
+  border-bottom: 1px solid #bfbfbf;
+  background: none;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 18px;
+  padding: 18px 0;
+  font-family: 'open sans';
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 20px; }
+  .form__item__textbox[type=password] {
+    padding: 20px 0 16px; }
+  .form__item__textbox:active, .form__item__textbox:focus {
+    border-color: #00d2a9;
+    outline: none; }
+
+.form__item__textbox--hasvalue + .form__item__textbox-placeholder {
+  transform: translateY(-27px);
+  color: #00d2a9; }
+  .form__item__textbox--hasvalue + .form__item__textbox-placeholder span {
+    transform: scale(0.8); }
+
+.form__item__textbox-placeholder {
+  transform: translateY(0);
+  transition: transform 150ms;
+  font-family: 'lato';
+  color: #ccc;
+  position: absolute;
+  top: 16px;
+  left: 0;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: 400; }
+  .form__item__textbox-placeholder span {
+    display: block;
+    transform: scale(1);
+    transition: transform 150ms;
+    transform-origin: top left; }
+
+.form__submit {
+  margin-top: 30px; }
+
+.form__submit--wide {
+  width: 100%; }
+
+.form__error {
+  height: 20px;
+  font-family: 'open sans';
+  color: #ff6666;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-bottom: 20px; }
+
+.welcome__textbox-name {
+  padding-left: 170px; }
+
+.button {
+  background: #00d2a9;
+  border: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 0 14px;
+  margin: 0; }
+
 .dialog {
   position: absolute;
   top: 0;
@@ -1352,13 +1292,38 @@ Styleguide 3.1.
   bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  transform: translateY(10px);
+  transition: transform 300ms; }
+  .wrap--init .dialog {
+    transform: translateY(0); }
 
 .dialog__inner {
   background: #fff;
   width: 465px;
-  height: 470px;
-  margin: -20px auto 0; }
+  height: 490px;
+  margin: -40px auto 0;
+  padding: 60px;
+  box-sizing: border-box;
+  position: relative; }
+
+.dialog__lead {
+  font-family: 'lato';
+  font-size: 22px;
+  line-height: 1.6;
+  display: block;
+  text-align: center;
+  width: 240px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 90px; }
+
+.dialog__form {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  right: 60px;
+  margin: 0; }
 
 html {
   height: 100%; }
