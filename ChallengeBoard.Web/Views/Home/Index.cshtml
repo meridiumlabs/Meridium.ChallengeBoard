@@ -6,13 +6,13 @@
         <form class="dialog__form form" action="/home/new" method="POST">
             <div class="form__item">
                 <label class="hidden">Namn</label>
-                @Html.TextBoxFor(m => m.UserName, new { @class= "form__item__textbox welcome__textbox-name", autocomplete="off", autofocus="autofocus" })
-                <span class="form__item__textbox-placeholder">challenge.meridium.se/</span>
+                @Html.TextBoxFor(m => m.UserName, new { @class= "form__item__textbox welcome__textbox-name lowercase", autocomplete="off", autofocus="autofocus" })
+                <span class="form__item__textbox-placeholder fixed">challenge.meridium.se/</span>
             </div> 
             <div class="form__error">
                 @Html.ValidationMessageFor(m => m.UserName)
             </div>  
-            <button type="submit" class="form__submit form__submit--wide button">Lets do this</button>
+            <button type="submit" class="form__submit form__submit--wide button">Gå vidare</button>
         </form>
     </div>
 </div>

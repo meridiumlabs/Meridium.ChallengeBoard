@@ -17,7 +17,7 @@ namespace ChallengeBoard.Web.Controllers {
             if(ModelState.IsValid == false) return RedirectToAction("Index");
 
             if (RavenSession.Query<User>().Any(x => x.UserName == model.UserName)) {
-                ModelState.AddModelError("Name", "Namnet är redan taget");
+                ModelState.AddModelError("UserName", "Namnet är redan taget");
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index", "Board", new { username = model.UserName });

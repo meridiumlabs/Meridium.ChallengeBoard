@@ -13,14 +13,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
     var placeholders = $('.form__item__textbox');
    
     placeholders.keypress(function() {
-        //if($(this).val().length > 0) {
-            $(this).addClass("form__item__textbox--hasvalue");
-        //}
+        $(this).addClass("form__item__textbox--hasvalue");
     });
     placeholders.keyup(function() {
         if($(this).val().length == 0) {
             $(this).removeClass("form__item__textbox--hasvalue")
         }
+        if($(this).hasClass('lowercase')) {
+            $(this).val($(this).val().toLowerCase());
+        }        
     });
 
 

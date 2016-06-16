@@ -25,10 +25,14 @@
         border-color:#00d2a9;
         outline:none;
     }
+    &.input-validation-error {
+        border-color:#ff6666;
+    }
 }
-.form__item__textbox--hasvalue + .form__item__textbox-placeholder {
+.form__item__textbox--hasvalue + .form__item__textbox-placeholder:not(.fixed) {
     transform:translateY(-27px);
     color:#00d2a9;
+    //font-weight:700;
     //font-size:10px;
     //text-transform:uppercase;
     span {
@@ -39,7 +43,7 @@
     transform:translateY(0);
     transition:transform 150ms;
     font-family:'lato';
-    color:#ccc;
+    color:#999;
     position:absolute;
     top:16px;
     left:0;
@@ -65,12 +69,12 @@
     color:#ff6666;
     font-weight:600;
     font-size:12px;
-    margin-top:-5px;
-    margin-bottom:20px;
+    margin-top:-22px;
+    margin-bottom:26px;
 }
 
 .welcome__textbox-name {
-    padding-left:170px;
+    padding-left:190px;
 }
 
 .button {

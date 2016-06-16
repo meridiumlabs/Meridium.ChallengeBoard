@@ -5,10 +5,12 @@ using System.Web.Mvc;
 using ChallengeBoard.Web.Extensions;
 using ChallengeBoard.Web.Models;
 using ChallengeBoard.Web.ViewModels;
+using ChallengeBoard.Web.Shared.Attributes;
 
 namespace ChallengeBoard.Web.Controllers {
     public class BoardController : RavenSessionController {
-        
+
+        [ImportModelStateFromTempData]
         public ActionResult Index(string username) {
             if (string.IsNullOrEmpty(username)) return RedirectToAction("Index", "Welcome");
 
@@ -58,13 +60,14 @@ namespace ChallengeBoard.Web.Controllers {
         }
         
         [HttpPost]
+        [ExportModelStateToTempData]
         public ActionResult NewUser(User user) {
-            if (!string.IsNullOrEmpty(user.Name) && !string.IsNullOrEmpty(user.Password)) {               
+            if (ModelState.IsValid) {               
                 user.AuthID = Guid.NewGuid().ToString();
                 RavenSession.Store(user);
                 user.SetAuthenticationCookie();
             }
-            return RedirectToAction("Index", new { name = user.UserName });
+            return RedirectToAction("Index", new { username = user.UserName });
         }
     }
 }

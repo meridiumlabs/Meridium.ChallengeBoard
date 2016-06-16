@@ -28,10 +28,15 @@
     padding:0;
     font-size:22px;
     position:relative;
+    border:none;
     .icon {
         color:#4f3e63;
         width:18px;
         text-align:center;
+    }
+    &:focus,
+    &:active {
+        outline:none;
     }
 }
 .header__actions__icon + .header__actions__icon {
